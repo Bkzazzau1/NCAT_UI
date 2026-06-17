@@ -36,7 +36,7 @@ class _ResponsiveShellState extends State<ResponsiveShell> {
     NavItem(title: 'Workflow & Approvals', icon: Icons.account_tree_rounded),
     NavItem(title: 'Flight History Intelligence', icon: Icons.flight_rounded),
     NavItem(title: 'AI Infrastructure', icon: Icons.hub_rounded),
-    NavItem(title: 'Student App + Logbook', icon: Icons.menu_book_rounded),
+    NavItem(title: 'AI Student Management', icon: Icons.psychology_alt_rounded),
     NavItem(title: 'AI Report Generator', icon: Icons.summarize_rounded),
   ];
 
