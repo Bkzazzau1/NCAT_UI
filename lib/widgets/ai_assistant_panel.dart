@@ -16,18 +16,30 @@ class AIAssistantPanel extends StatefulWidget {
 class _AIAssistantPanelState extends State<AIAssistantPanel> {
   final TextEditingController _controller = TextEditingController();
   String _answer =
-      'I can search student records, missing files, flight history, infrastructure alerts, workflows and NCAT reports.';
+      'I can search student records, missing files, flight history, infrastructure alerts, workflows, handbook rules, logbooks, academic support and NCAT reports.';
 
   void _ask(String prompt) {
     final lower = prompt.toLowerCase();
     setState(() {
       _controller.text = prompt;
-      if (lower.contains('missing')) {
+      if (lower.contains('student') || lower.contains('risk')) {
+        _answer =
+            'Student 360: 58 students need intervention. Main causes are missing medical files, logbook delays, low attendance, unpaid fees, hostel clearance and training gaps.';
+      } else if (lower.contains('handbook') || lower.contains('policy')) {
+        _answer =
+            'Handbook AI: students can ask approved NCAT policy questions. Answers should show the source document and never override official staff approval.';
+      } else if (lower.contains('logbook')) {
+        _answer =
+            'Logbook AI: 37 entries are pending instructor approval. AI can improve student entries, detect missing fields and route them to the correct instructor.';
+      } else if (lower.contains('academic')) {
+        _answer =
+            'Academic AI: 27 students have weak areas. Recommended support: revision questions, lecture note summaries, topic explanations and targeted study plans.';
+      } else if (lower.contains('missing')) {
         _answer =
             'AI found 184 incomplete records. 43 are urgent: mostly medical clearance, bursary confirmation, hostel approval and one safety compliance file for Hangar 2.';
       } else if (lower.contains('rector') || lower.contains('report')) {
         _answer =
-            'Management brief: 1,247 active students, 184 incomplete files, 27 training-risk students, 18 infrastructure alerts, 43 pending clearance cases and 9 delayed result approvals.';
+            'Management brief: 1,247 active students, 184 incomplete files, 58 student intervention cases, 27 training-risk students, 18 infrastructure alerts and 9 delayed result approvals.';
       } else if (lower.contains('flight')) {
         _answer =
             'Flight intelligence: 12 pilot students have training gaps above 14 days. One student has repeated landing approach remarks and should complete one simulator refresher before next solo.';
@@ -43,7 +55,7 @@ class _AIAssistantPanelState extends State<AIAssistantPanel> {
             'Clearance check: 43 students are blocked. Main causes are bursary confirmation, hostel clearance, missing logbook approvals, and registry document verification.';
       } else {
         _answer =
-            'AI recommendation: connect this request to NCAT data vault, student lifecycle records, workflows, aviation logbooks and infrastructure asset registry for a complete answer.';
+            'AI recommendation: connect this request to NCAT data vault, student lifecycle records, workflows, aviation logbooks, handbook knowledge base and infrastructure asset registry.';
       }
     });
   }
@@ -77,7 +89,7 @@ class _AIAssistantPanelState extends State<AIAssistantPanel> {
                         style: TextStyle(
                             fontWeight: FontWeight.w900, fontSize: 16)),
                     SizedBox(height: 2),
-                    Text('Institutional intelligence copilot',
+                    Text('Student and institutional intelligence copilot',
                         style:
                             TextStyle(color: NCATTheme.softText, fontSize: 12)),
                   ],
@@ -106,7 +118,7 @@ class _AIAssistantPanelState extends State<AIAssistantPanel> {
             minLines: 1,
             maxLines: 2,
             decoration: InputDecoration(
-              hintText: 'Ask about files, students, flights, assets...',
+              hintText: 'Ask about students, files, handbook, logbook...',
               suffixIcon: IconButton(
                 icon: const Icon(Icons.send_rounded),
                 onPressed: () => _ask(_controller.text),
