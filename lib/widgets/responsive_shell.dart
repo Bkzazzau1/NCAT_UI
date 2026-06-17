@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../app/theme.dart';
 import '../models/demo_models.dart';
+import '../screens/ai_academic_assistant_page.dart';
 import '../screens/ai_handbook_page.dart';
 import '../screens/command_centre_page.dart';
 import '../screens/document_vault_page.dart';
@@ -41,6 +42,7 @@ class _ResponsiveShellState extends State<ResponsiveShell> {
     NavItem(title: 'AI Student Management', icon: Icons.psychology_alt_rounded),
     NavItem(title: 'AI Student Service Desk', icon: Icons.support_agent_rounded),
     NavItem(title: 'AI Handbook Knowledge Base', icon: Icons.menu_book_rounded),
+    NavItem(title: 'AI Academic Assistant', icon: Icons.school_rounded),
     NavItem(title: 'AI Report Generator', icon: Icons.summarize_rounded),
   ];
 
@@ -56,6 +58,7 @@ class _ResponsiveShellState extends State<ResponsiveShell> {
         const StudentAIAppPage(),
         const StudentServiceDeskPage(),
         const AIHandbookPage(),
+        const AIAcademicAssistantPage(),
         const ReportGeneratorPage(),
       ];
 
