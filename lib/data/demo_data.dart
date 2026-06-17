@@ -184,7 +184,10 @@ final infrastructureAssets = <AssetItem>[
 ];
 
 final aiPrompts = <String>[
+  'Show student risk cases.',
   'Which students have missing files?',
+  'Summarize AI handbook activity.',
+  'Show logbook approvals pending.',
   'Generate report for the Rector.',
   'Show flight training risks.',
   'List infrastructure assets due for maintenance.',
