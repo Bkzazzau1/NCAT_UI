@@ -2,18 +2,23 @@
 
 A premium Flutter UI demo for an **AI-powered NCAT Infrastructure, Administration, Flight History, Student Tracking, Missing File Detection, Handbook, Logbook, and Academic Assistance Platform**.
 
+## New focus
+
+The core presentation message is **AI-powered student management**: a Student 360 system that connects admissions, documents, attendance, training, logbooks, welfare, payments, clearance, certificate and transcript readiness.
+
 ## Demo Pages
 
 1. Login & Role Selection
 2. AI Executive Command Centre
-3. Student Profile & AI Summary
-4. AI Missing File Intelligence
-5. Digital Document Vault
-6. Workflow & Approval Control
-7. Flight History Intelligence
-8. AI Infrastructure Command Centre
-9. AI Student Handbook, Logbook & Academic Assistant
-10. AI Report Generator
+3. AI Student Management
+4. Student Profile & AI Summary
+5. AI Missing File Intelligence
+6. Digital Document Vault
+7. Workflow & Approval Control
+8. Flight History Intelligence
+9. AI Infrastructure Command Centre
+10. AI Student Handbook, Logbook & Academic Assistant
+11. AI Report Generator
 
 ## Run
 
@@ -23,12 +28,3 @@ flutter run -d chrome
 ```
 
 The demo uses mock data only. AI responses are simulated for presentation reliability.
-
-## Suggested Presentation Flow
-
-1. Start with Login as Management.
-2. Open the AI Executive Command Centre.
-3. Show missing files and AI recommendations.
-4. Open Flight History Intelligence to show aviation-specific strength.
-5. Open Infrastructure Command Centre for NCAT facilities, ICT, simulators, hostels, safety, and assets.
-6. End with Ask NCAT AI and AI Report Generator.
