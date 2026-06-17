@@ -27,6 +27,8 @@ class StudentAIAppPage extends StatelessWidget {
         SizedBox(height: 14),
         _StudentListCard(),
         SizedBox(height: 14),
+        _StudentDetailDrilldown(),
+        SizedBox(height: 14),
         _StudentToolsCard(),
       ],
     );
@@ -236,6 +238,178 @@ class _StudentTableRow extends StatelessWidget {
         _Cell(student.nextOffice, flex: 2),
         Expanded(child: StatusChip(student.priority, color: color)),
       ]),
+    );
+  }
+}
+
+class _StudentDetailDrilldown extends StatelessWidget {
+  const _StudentDetailDrilldown();
+
+  @override
+  Widget build(BuildContext context) {
+    return GlassCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                height: 52,
+                width: 52,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: const LinearGradient(colors: [NCATTheme.cyan, NCATTheme.blue]),
+                  boxShadow: [BoxShadow(color: NCATTheme.cyan.withValues(alpha: .20), blurRadius: 24)],
+                ),
+                child: const Icon(Icons.person_rounded, color: Colors.white),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Selected Student Drill-down',
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900)),
+                    const SizedBox(height: 4),
+                    const Text('Aisha M. Bala • NCAT/2026/PILOT/018 • Standard Pilot Course',
+                        style: TextStyle(color: NCATTheme.softText)),
+                  ],
+                ),
+              ),
+              const StatusChip('AI review needed', color: NCATTheme.gold),
+            ],
+          ),
+          const SizedBox(height: 18),
+          const Wrap(
+            spacing: 10,
+            runSpacing: 10,
+            children: [
+              StatusChip('Overview'),
+              StatusChip('Files'),
+              StatusChip('Attendance'),
+              StatusChip('Flight Training'),
+              StatusChip('Logbook'),
+              StatusChip('Fees'),
+              StatusChip('Clearance'),
+              StatusChip('AI Recommendations'),
+            ],
+          ),
+          const SizedBox(height: 18),
+          LayoutBuilder(builder: (context, constraints) {
+            final narrow = constraints.maxWidth < 900;
+            final progress = Column(
+              children: const [
+                _ProgressLine(title: 'Student file completion', value: .78, label: '78%', color: NCATTheme.gold),
+                SizedBox(height: 14),
+                _ProgressLine(title: 'Attendance performance', value: .84, label: '84%', color: NCATTheme.green),
+                SizedBox(height: 14),
+                _ProgressLine(title: 'Flight training progress', value: .62, label: '62%', color: NCATTheme.cyan),
+                SizedBox(height: 14),
+                _ProgressLine(title: 'Clearance readiness', value: .43, label: '43%', color: NCATTheme.red),
+              ],
+            );
+            final recommendations = Column(
+              children: const [
+                _RecommendationCard(
+                  icon: Icons.medical_information_rounded,
+                  title: 'Medical file missing',
+                  text: 'AI recommends routing the case to Medical Unit and Registry for verification before training clearance.',
+                  color: NCATTheme.red,
+                ),
+                SizedBox(height: 12),
+                _RecommendationCard(
+                  icon: Icons.flight_takeoff_rounded,
+                  title: 'Training gap detected',
+                  text: 'Student has a training delay. AI recommends simulator refresher and instructor review before next solo stage.',
+                  color: NCATTheme.gold,
+                ),
+                SizedBox(height: 12),
+                _RecommendationCard(
+                  icon: Icons.home_work_rounded,
+                  title: 'Hostel approval pending',
+                  text: 'Hostel unit should confirm allocation and welfare status to unlock clearance readiness.',
+                  color: NCATTheme.cyan,
+                ),
+              ],
+            );
+
+            if (narrow) {
+              return Column(children: [progress, const SizedBox(height: 16), recommendations]);
+            }
+            return Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Expanded(child: progress),
+              const SizedBox(width: 18),
+              Expanded(child: recommendations),
+            ]);
+          }),
+        ],
+      ),
+    );
+  }
+}
+
+class _ProgressLine extends StatelessWidget {
+  const _ProgressLine({required this.title, required this.value, required this.label, required this.color});
+  final String title;
+  final double value;
+  final String label;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(children: [
+          Expanded(child: Text(title, style: const TextStyle(fontWeight: FontWeight.w800))),
+          Text(label, style: TextStyle(color: color, fontWeight: FontWeight.w900)),
+        ]),
+        const SizedBox(height: 8),
+        LinearProgressIndicator(
+          value: value,
+          minHeight: 9,
+          borderRadius: BorderRadius.circular(999),
+          color: color,
+          backgroundColor: Colors.white.withValues(alpha: .08),
+        ),
+      ],
+    );
+  }
+}
+
+class _RecommendationCard extends StatelessWidget {
+  const _RecommendationCard({required this.icon, required this.title, required this.text, required this.color});
+  final IconData icon;
+  final String title;
+  final String text;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: .045),
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: color.withValues(alpha: .22)),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(icon, color: color),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title, style: const TextStyle(fontWeight: FontWeight.w900)),
+                const SizedBox(height: 5),
+                Text(text, style: const TextStyle(color: NCATTheme.softText, height: 1.45)),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
