@@ -5,6 +5,7 @@ import '../models/demo_models.dart';
 import '../screens/ai_academic_assistant_page.dart';
 import '../screens/ai_handbook_page.dart';
 import '../screens/ai_logbook_studio_page.dart';
+import '../screens/ai_practical_management_page.dart';
 import '../screens/command_centre_page.dart';
 import '../screens/document_vault_page.dart';
 import '../screens/flight_history_page.dart';
@@ -12,6 +13,7 @@ import '../screens/infrastructure_page.dart';
 import '../screens/login_page.dart';
 import '../screens/missing_file_page.dart';
 import '../screens/report_generator_page.dart';
+import '../screens/security_reports_page.dart';
 import '../screens/student_ai_app_page.dart';
 import '../screens/student_profile_page.dart';
 import '../screens/student_service_desk_page.dart';
@@ -41,10 +43,12 @@ class _ResponsiveShellState extends State<ResponsiveShell> {
     NavItem(title: 'Flight History Intelligence', icon: Icons.flight_rounded),
     NavItem(title: 'AI Infrastructure', icon: Icons.hub_rounded),
     NavItem(title: 'AI Student Management', icon: Icons.psychology_alt_rounded),
+    NavItem(title: 'AI Practical Management', icon: Icons.engineering_rounded),
     NavItem(title: 'AI Student Service Desk', icon: Icons.support_agent_rounded),
     NavItem(title: 'AI Handbook Knowledge Base', icon: Icons.menu_book_rounded),
     NavItem(title: 'AI Academic Assistant', icon: Icons.school_rounded),
     NavItem(title: 'AI Logbook Studio', icon: Icons.edit_note_rounded),
+    NavItem(title: 'AI Security Reports', icon: Icons.security_rounded),
     NavItem(title: 'AI Report Generator', icon: Icons.summarize_rounded),
   ];
 
@@ -58,10 +62,12 @@ class _ResponsiveShellState extends State<ResponsiveShell> {
         const FlightHistoryPage(),
         const InfrastructurePage(),
         const StudentAIAppPage(),
+        const AIPracticalManagementPage(),
         const StudentServiceDeskPage(),
         const AIHandbookPage(),
         const AIAcademicAssistantPage(),
         const AILogbookStudioPage(),
+        const SecurityReportsPage(),
         const ReportGeneratorPage(),
       ];
 
