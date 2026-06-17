@@ -11,6 +11,7 @@ import '../screens/missing_file_page.dart';
 import '../screens/report_generator_page.dart';
 import '../screens/student_ai_app_page.dart';
 import '../screens/student_profile_page.dart';
+import '../screens/student_service_desk_page.dart';
 import '../screens/workflow_approval_page.dart';
 import 'side_nav.dart';
 import 'top_bar.dart';
@@ -37,6 +38,7 @@ class _ResponsiveShellState extends State<ResponsiveShell> {
     NavItem(title: 'Flight History Intelligence', icon: Icons.flight_rounded),
     NavItem(title: 'AI Infrastructure', icon: Icons.hub_rounded),
     NavItem(title: 'AI Student Management', icon: Icons.psychology_alt_rounded),
+    NavItem(title: 'AI Student Service Desk', icon: Icons.support_agent_rounded),
     NavItem(title: 'AI Report Generator', icon: Icons.summarize_rounded),
   ];
 
@@ -50,6 +52,7 @@ class _ResponsiveShellState extends State<ResponsiveShell> {
         const FlightHistoryPage(),
         const InfrastructurePage(),
         const StudentAIAppPage(),
+        const StudentServiceDeskPage(),
         const ReportGeneratorPage(),
       ];
 
