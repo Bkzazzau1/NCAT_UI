@@ -25,7 +25,8 @@ class StudentProfilePage extends StatelessWidget {
                 const SectionHeader(
                   icon: Icons.badge_rounded,
                   title: 'Student Profile & AI Summary',
-                  subtitle: 'A single intelligent profile showing biodata, files, fees, training, flight hours, risk and clearance readiness.',
+                  subtitle:
+                      'A single intelligent profile showing biodata, files, fees, training, flight hours, risk and clearance readiness.',
                 ),
                 const SizedBox(height: 20),
                 GlassCard(
@@ -39,24 +40,33 @@ class StudentProfilePage extends StatelessWidget {
                             width: 72,
                             decoration: const BoxDecoration(
                               shape: BoxShape.circle,
-                              gradient: LinearGradient(colors: [NCATTheme.blue, NCATTheme.cyan]),
+                              gradient: LinearGradient(
+                                  colors: [NCATTheme.blue, NCATTheme.cyan]),
                             ),
-                            child: const Icon(Icons.person_rounded, color: Colors.white, size: 38),
+                            child: const Icon(Icons.person_rounded,
+                                color: Colors.white, size: 38),
                           ),
                           const SizedBox(width: 18),
                           Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(demoStudent.name, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w900)),
+                                Text(demoStudent.name,
+                                    style: const TextStyle(
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.w900)),
                                 const SizedBox(height: 6),
-                                Text('${demoStudent.regNo} • ${demoStudent.programme}', style: const TextStyle(color: NCATTheme.softText)),
+                                Text(
+                                    '${demoStudent.regNo} • ${demoStudent.programme}',
+                                    style: const TextStyle(
+                                        color: NCATTheme.softText)),
                                 const SizedBox(height: 8),
                                 Wrap(
                                   spacing: 8,
                                   children: [
                                     StatusChip(demoStudent.level),
-                                    StatusChip('Risk ${demoStudent.riskScore}%'),
+                                    StatusChip(
+                                        'Risk ${demoStudent.riskScore}%'),
                                     StatusChip(demoStudent.clearanceStatus),
                                   ],
                                 ),
@@ -70,14 +80,26 @@ class StudentProfilePage extends StatelessWidget {
                         builder: (context, constraints) {
                           final wrap = constraints.maxWidth < 680;
                           final rings = [
-                            ProgressRing(value: demoStudent.fileCompletion, label: 'File Complete', color: NCATTheme.gold),
-                            ProgressRing(value: demoStudent.attendance, label: 'Attendance', color: NCATTheme.green),
-                            ProgressRing(value: demoStudent.riskScore / 100, label: 'Risk Score', color: NCATTheme.red),
+                            ProgressRing(
+                                value: demoStudent.fileCompletion,
+                                label: 'File Complete',
+                                color: NCATTheme.gold),
+                            ProgressRing(
+                                value: demoStudent.attendance,
+                                label: 'Attendance',
+                                color: NCATTheme.green),
+                            ProgressRing(
+                                value: demoStudent.riskScore / 100,
+                                label: 'Risk Score',
+                                color: NCATTheme.red),
                           ];
                           if (wrap) {
-                            return Wrap(spacing: 18, runSpacing: 18, children: rings);
+                            return Wrap(
+                                spacing: 18, runSpacing: 18, children: rings);
                           }
-                          return Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: rings);
+                          return Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: rings);
                         },
                       ),
                     ],
@@ -88,14 +110,17 @@ class StudentProfilePage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('AI Student Summary', style: TextStyle(fontWeight: FontWeight.w900, fontSize: 18)),
+                      const Text('AI Student Summary',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w900, fontSize: 18)),
                       const SizedBox(height: 12),
                       Container(
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          color: NCATTheme.cyan.withOpacity(.08),
+                          color: NCATTheme.cyan.withValues(alpha: .08),
                           borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: NCATTheme.cyan.withOpacity(.18)),
+                          border: Border.all(
+                              color: NCATTheme.cyan.withValues(alpha: .18)),
                         ),
                         child: const Text(
                           'AI detected that this student file is 78% complete. Missing items are medical clearance and hostel approval. Flight progress is acceptable, but the student has a medium risk score due to clearance delay and a recent training gap.',
@@ -110,10 +135,22 @@ class StudentProfilePage extends StatelessWidget {
                   builder: (context, constraints) {
                     final isNarrow = constraints.maxWidth < 760;
                     final items = [
-                      _InfoCard(title: 'Flight Hours', value: '${demoStudent.flightHours}', icon: Icons.flight_rounded),
-                      _InfoCard(title: 'Simulator Hours', value: '${demoStudent.simulatorHours}', icon: Icons.airline_seat_recline_normal_rounded),
-                      const _InfoCard(title: 'Missing Documents', value: '2', icon: Icons.folder_off_rounded),
-                      const _InfoCard(title: 'Pending Approvals', value: '3', icon: Icons.pending_actions_rounded),
+                      _InfoCard(
+                          title: 'Flight Hours',
+                          value: '${demoStudent.flightHours}',
+                          icon: Icons.flight_rounded),
+                      _InfoCard(
+                          title: 'Simulator Hours',
+                          value: '${demoStudent.simulatorHours}',
+                          icon: Icons.airline_seat_recline_normal_rounded),
+                      const _InfoCard(
+                          title: 'Missing Documents',
+                          value: '2',
+                          icon: Icons.folder_off_rounded),
+                      const _InfoCard(
+                          title: 'Pending Approvals',
+                          value: '3',
+                          icon: Icons.pending_actions_rounded),
                     ];
                     return GridView.count(
                       shrinkWrap: true,
@@ -144,7 +181,8 @@ class StudentProfilePage extends StatelessWidget {
 }
 
 class _InfoCard extends StatelessWidget {
-  const _InfoCard({required this.title, required this.value, required this.icon});
+  const _InfoCard(
+      {required this.title, required this.value, required this.icon});
 
   final String title;
   final String value;
@@ -163,8 +201,12 @@ class _InfoCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(value, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w900)),
-                Text(title, style: const TextStyle(color: NCATTheme.softText, fontSize: 12)),
+                Text(value,
+                    style: const TextStyle(
+                        fontSize: 22, fontWeight: FontWeight.w900)),
+                Text(title,
+                    style: const TextStyle(
+                        color: NCATTheme.softText, fontSize: 12)),
               ],
             ),
           ),

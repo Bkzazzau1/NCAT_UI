@@ -11,12 +11,42 @@ class WorkflowApprovalPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final workflows = [
-      ('Admission Approval', 'Registry → Department → Bursary → Admission Letter', '32 pending', Icons.how_to_reg_rounded),
-      ('Result Approval', 'Lecturer → Exam Officer → HoD → Academic Office', '9 delayed', Icons.fact_check_rounded),
-      ('Clearance Workflow', 'Bursary → Hostel → Library → Registry → Final Certificate', '43 blocked', Icons.verified_rounded),
-      ('Transcript Request', 'Student Request → Payment → Registry → Dispatch', '12 ready', Icons.description_rounded),
-      ('Maintenance Request', 'Report → AI Classify → Works/ICT → Supervisor Approval', '18 active', Icons.construction_rounded),
-      ('Memo Approval', 'Draft → Unit Head → Director → Archive', '7 awaiting action', Icons.approval_rounded),
+      (
+        'Admission Approval',
+        'Registry → Department → Bursary → Admission Letter',
+        '32 pending',
+        Icons.how_to_reg_rounded
+      ),
+      (
+        'Result Approval',
+        'Lecturer → Exam Officer → HoD → Academic Office',
+        '9 delayed',
+        Icons.fact_check_rounded
+      ),
+      (
+        'Clearance Workflow',
+        'Bursary → Hostel → Library → Registry → Final Certificate',
+        '43 blocked',
+        Icons.verified_rounded
+      ),
+      (
+        'Transcript Request',
+        'Student Request → Payment → Registry → Dispatch',
+        '12 ready',
+        Icons.description_rounded
+      ),
+      (
+        'Maintenance Request',
+        'Report → AI Classify → Works/ICT → Supervisor Approval',
+        '18 active',
+        Icons.construction_rounded
+      ),
+      (
+        'Memo Approval',
+        'Draft → Unit Head → Director → Archive',
+        '7 awaiting action',
+        Icons.approval_rounded
+      ),
     ];
 
     return SingleChildScrollView(
@@ -26,13 +56,18 @@ class WorkflowApprovalPage extends StatelessWidget {
           const SectionHeader(
             icon: Icons.account_tree_rounded,
             title: 'Workflow & Approval Control',
-            subtitle: 'AI monitors administrative processes, file movement, bottlenecks, staff actions and approval delays.',
+            subtitle:
+                'AI monitors administrative processes, file movement, bottlenecks, staff actions and approval delays.',
             actionLabel: 'Run AI Audit',
           ),
           const SizedBox(height: 20),
           LayoutBuilder(
             builder: (context, constraints) {
-              final count = constraints.maxWidth > 1000 ? 3 : constraints.maxWidth > 680 ? 2 : 1;
+              final count = constraints.maxWidth > 1000
+                  ? 3
+                  : constraints.maxWidth > 680
+                      ? 2
+                      : 1;
               return GridView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
@@ -57,9 +92,13 @@ class WorkflowApprovalPage extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: 16),
-                        Text(item.$1, style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 17)),
+                        Text(item.$1,
+                            style: const TextStyle(
+                                fontWeight: FontWeight.w900, fontSize: 17)),
                         const SizedBox(height: 8),
-                        Text(item.$2, style: const TextStyle(color: NCATTheme.softText, height: 1.45)),
+                        Text(item.$2,
+                            style: const TextStyle(
+                                color: NCATTheme.softText, height: 1.45)),
                       ],
                     ),
                   );
@@ -72,7 +111,9 @@ class WorkflowApprovalPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Live Approval Timeline', style: TextStyle(fontWeight: FontWeight.w900, fontSize: 18)),
+                const Text('Live Approval Timeline',
+                    style:
+                        TextStyle(fontWeight: FontWeight.w900, fontSize: 18)),
                 const SizedBox(height: 18),
                 ...[
                   ('Result submitted by Lecturer', 'Today 09:20', true),
@@ -83,10 +124,20 @@ class WorkflowApprovalPage extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 14),
                       child: Row(
                         children: [
-                          Icon(step.$3 ? Icons.check_circle_rounded : Icons.timelapse_rounded, color: step.$3 ? NCATTheme.green : NCATTheme.gold),
+                          Icon(
+                              step.$3
+                                  ? Icons.check_circle_rounded
+                                  : Icons.timelapse_rounded,
+                              color:
+                                  step.$3 ? NCATTheme.green : NCATTheme.gold),
                           const SizedBox(width: 12),
-                          Expanded(child: Text(step.$1, style: const TextStyle(fontWeight: FontWeight.w700))),
-                          Text(step.$2, style: const TextStyle(color: NCATTheme.softText)),
+                          Expanded(
+                              child: Text(step.$1,
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.w700))),
+                          Text(step.$2,
+                              style:
+                                  const TextStyle(color: NCATTheme.softText)),
                         ],
                       ),
                     )),

@@ -30,7 +30,10 @@ class TopBar extends StatelessWidget {
               title,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge
+                  ?.copyWith(fontWeight: FontWeight.w900),
             ),
           ),
           const SizedBox(width: 10),
@@ -38,14 +41,16 @@ class TopBar extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 9),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(999),
-              color: Colors.white.withOpacity(.06),
-              border: Border.all(color: Colors.white.withOpacity(.10)),
+              color: Colors.white.withValues(alpha: .06),
+              border: Border.all(color: Colors.white.withValues(alpha: .10)),
             ),
             child: const Row(
               children: [
                 Icon(Icons.circle, color: NCATTheme.green, size: 10),
                 SizedBox(width: 8),
-                Text('AI Online', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700)),
+                Text('AI Online',
+                    style:
+                        TextStyle(fontSize: 12, fontWeight: FontWeight.w700)),
               ],
             ),
           ),

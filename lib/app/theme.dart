@@ -27,28 +27,27 @@ class NCATTheme {
         surface: panel,
         error: red,
       ),
-      fontFamily: 'Inter',
       textTheme: base.textTheme.apply(
         fontFamily: 'Inter',
         bodyColor: text,
         displayColor: text,
       ),
-      cardTheme: CardTheme(
-        color: panel.withOpacity(.78),
+      cardTheme: CardThemeData(
+        color: panel.withValues(alpha: .78),
         elevation: 0,
         margin: EdgeInsets.zero,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: Colors.white.withOpacity(.07),
+        fillColor: Colors.white.withValues(alpha: .07),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(18),
-          borderSide: BorderSide(color: Colors.white.withOpacity(.12)),
+          borderSide: BorderSide(color: Colors.white.withValues(alpha: .12)),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(18),
-          borderSide: BorderSide(color: Colors.white.withOpacity(.12)),
+          borderSide: BorderSide(color: Colors.white.withValues(alpha: .12)),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(18),

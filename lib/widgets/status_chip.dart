@@ -14,9 +14,9 @@ class StatusChip extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
       decoration: BoxDecoration(
-        color: c.withOpacity(.14),
+        color: c.withValues(alpha: .14),
         borderRadius: BorderRadius.circular(999),
-        border: Border.all(color: c.withOpacity(.45)),
+        border: Border.all(color: c.withValues(alpha: .45)),
       ),
       child: Text(
         label,
@@ -27,13 +27,19 @@ class StatusChip extends StatelessWidget {
 
   Color _colorFor(String label) {
     final lower = label.toLowerCase();
-    if (lower.contains('critical') || lower.contains('high') || lower.contains('overdue')) {
+    if (lower.contains('critical') ||
+        lower.contains('high') ||
+        lower.contains('overdue')) {
       return NCATTheme.red;
     }
-    if (lower.contains('medium') || lower.contains('pending') || lower.contains('due')) {
+    if (lower.contains('medium') ||
+        lower.contains('pending') ||
+        lower.contains('due')) {
       return NCATTheme.gold;
     }
-    if (lower.contains('ready') || lower.contains('low') || lower.contains('approved')) {
+    if (lower.contains('ready') ||
+        lower.contains('low') ||
+        lower.contains('approved')) {
       return NCATTheme.green;
     }
     return NCATTheme.cyan;

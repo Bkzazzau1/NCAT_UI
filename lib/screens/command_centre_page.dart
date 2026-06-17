@@ -25,13 +25,18 @@ class CommandCentrePage extends StatelessWidget {
                 const SectionHeader(
                   icon: Icons.dashboard_customize_rounded,
                   title: 'AI Executive Command Centre',
-                  subtitle: 'Real-time intelligence across students, files, flight training, approvals, safety and infrastructure.',
+                  subtitle:
+                      'Real-time intelligence across students, files, flight training, approvals, safety and infrastructure.',
                   actionLabel: 'Generate Rector Brief',
                 ),
                 const SizedBox(height: 20),
                 LayoutBuilder(
                   builder: (context, constraints) {
-                    final count = constraints.maxWidth > 980 ? 4 : constraints.maxWidth > 650 ? 2 : 1;
+                    final count = constraints.maxWidth > 980
+                        ? 4
+                        : constraints.maxWidth > 650
+                            ? 2
+                            : 1;
                     return GridView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
@@ -42,7 +47,8 @@ class CommandCentrePage extends StatelessWidget {
                         mainAxisSpacing: 14,
                         crossAxisSpacing: 14,
                       ),
-                      itemBuilder: (context, index) => StatCard(metric: executiveMetrics[index]),
+                      itemBuilder: (context, index) =>
+                          StatCard(metric: executiveMetrics[index]),
                     );
                   },
                 ),
@@ -53,9 +59,12 @@ class CommandCentrePage extends StatelessWidget {
                     children: [
                       const Row(
                         children: [
-                          Icon(Icons.auto_awesome_rounded, color: NCATTheme.cyan),
+                          Icon(Icons.auto_awesome_rounded,
+                              color: NCATTheme.cyan),
                           SizedBox(width: 10),
-                          Text('AI Priority Alerts', style: TextStyle(fontWeight: FontWeight.w900, fontSize: 18)),
+                          Text('AI Priority Alerts',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w900, fontSize: 18)),
                         ],
                       ),
                       const SizedBox(height: 16),
@@ -63,9 +72,10 @@ class CommandCentrePage extends StatelessWidget {
                             margin: const EdgeInsets.only(bottom: 12),
                             padding: const EdgeInsets.all(14),
                             decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(.05),
+                              color: Colors.white.withValues(alpha: .05),
                               borderRadius: BorderRadius.circular(18),
-                              border: Border.all(color: Colors.white.withOpacity(.08)),
+                              border: Border.all(
+                                  color: Colors.white.withValues(alpha: .08)),
                             ),
                             child: Row(
                               children: [
@@ -73,19 +83,28 @@ class CommandCentrePage extends StatelessWidget {
                                   height: 44,
                                   width: 44,
                                   decoration: BoxDecoration(
-                                    color: NCATTheme.cyan.withOpacity(.10),
+                                    color:
+                                        NCATTheme.cyan.withValues(alpha: .10),
                                     borderRadius: BorderRadius.circular(16),
                                   ),
-                                  child: const Icon(Icons.notification_important_rounded, color: NCATTheme.cyan),
+                                  child: const Icon(
+                                      Icons.notification_important_rounded,
+                                      color: NCATTheme.cyan),
                                 ),
                                 const SizedBox(width: 14),
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Text(alert.title, style: const TextStyle(fontWeight: FontWeight.w800)),
+                                      Text(alert.title,
+                                          style: const TextStyle(
+                                              fontWeight: FontWeight.w800)),
                                       const SizedBox(height: 4),
-                                      Text(alert.message, style: const TextStyle(color: NCATTheme.softText, fontSize: 13)),
+                                      Text(alert.message,
+                                          style: const TextStyle(
+                                              color: NCATTheme.softText,
+                                              fontSize: 13)),
                                     ],
                                   ),
                                 ),
@@ -95,7 +114,10 @@ class CommandCentrePage extends StatelessWidget {
                                   children: [
                                     StatusChip(alert.severity),
                                     const SizedBox(height: 8),
-                                    Text(alert.owner, style: const TextStyle(color: NCATTheme.softText, fontSize: 11)),
+                                    Text(alert.owner,
+                                        style: const TextStyle(
+                                            color: NCATTheme.softText,
+                                            fontSize: 11)),
                                   ],
                                 ),
                               ],

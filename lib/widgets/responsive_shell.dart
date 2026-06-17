@@ -28,7 +28,8 @@ class _ResponsiveShellState extends State<ResponsiveShell> {
 
   final _items = const <NavItem>[
     NavItem(title: 'Login & Roles', icon: Icons.login_rounded),
-    NavItem(title: 'AI Command Centre', icon: Icons.dashboard_customize_rounded),
+    NavItem(
+        title: 'AI Command Centre', icon: Icons.dashboard_customize_rounded),
     NavItem(title: 'Student AI Summary', icon: Icons.badge_rounded),
     NavItem(title: 'Missing File Intelligence', icon: Icons.folder_off_rounded),
     NavItem(title: 'Digital Document Vault', icon: Icons.inventory_2_rounded),

@@ -24,7 +24,8 @@ class MissingFilePage extends StatelessWidget {
                 const SectionHeader(
                   icon: Icons.folder_off_rounded,
                   title: 'AI Missing File Intelligence',
-                  subtitle: 'AI detects missing student, administrative, training, payment, compliance and infrastructure files.',
+                  subtitle:
+                      'AI detects missing student, administrative, training, payment, compliance and infrastructure files.',
                   actionLabel: 'Notify Offices',
                 ),
                 const SizedBox(height: 20),
@@ -32,12 +33,16 @@ class MissingFilePage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Detected Missing Files', style: TextStyle(fontWeight: FontWeight.w900, fontSize: 18)),
+                      const Text('Detected Missing Files',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w900, fontSize: 18)),
                       const SizedBox(height: 14),
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: DataTable(
-                          headingTextStyle: const TextStyle(color: NCATTheme.softText, fontWeight: FontWeight.w800),
+                          headingTextStyle: const TextStyle(
+                              color: NCATTheme.softText,
+                              fontWeight: FontWeight.w800),
                           columns: const [
                             DataColumn(label: Text('Owner / Ref')),
                             DataColumn(label: Text('Category')),
@@ -52,7 +57,8 @@ class MissingFilePage extends StatelessWidget {
                                   cells: [
                                     DataCell(Text(item.owner)),
                                     DataCell(Text(item.category)),
-                                    DataCell(SizedBox(width: 260, child: Text(item.missing))),
+                                    DataCell(SizedBox(
+                                        width: 260, child: Text(item.missing))),
                                     DataCell(Text(item.department)),
                                     DataCell(Text('${item.daysPending}')),
                                     DataCell(StatusChip(item.priority)),
@@ -66,21 +72,24 @@ class MissingFilePage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 18),
-                GlassCard(
+                const GlassCard(
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Icon(Icons.auto_fix_high_rounded, color: NCATTheme.cyan),
-                      const SizedBox(width: 14),
+                      Icon(Icons.auto_fix_high_rounded, color: NCATTheme.cyan),
+                      SizedBox(width: 14),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            Text('AI Recommendation', style: TextStyle(fontWeight: FontWeight.w900, fontSize: 17)),
+                          children: [
+                            Text('AI Recommendation',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w900, fontSize: 17)),
                             SizedBox(height: 8),
                             Text(
                               'Create automated reminders for Medical, Hostel, Procurement and Safety units. Escalate files pending above 7 days to the responsible supervisor. Mark Hangar 2 compliance file as urgent because safety inspection is overdue.',
-                              style: TextStyle(color: NCATTheme.softText, height: 1.5),
+                              style: TextStyle(
+                                  color: NCATTheme.softText, height: 1.5),
                             ),
                           ],
                         ),

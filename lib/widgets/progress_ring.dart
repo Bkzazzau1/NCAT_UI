@@ -33,9 +33,14 @@ class ProgressRing extends StatelessWidget {
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('${(value * 100).round()}%', style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 18)),
+              Text('${(value * 100).round()}%',
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w900, fontSize: 18)),
               const SizedBox(height: 3),
-              Text(label, textAlign: TextAlign.center, style: const TextStyle(color: NCATTheme.softText, fontSize: 11)),
+              Text(label,
+                  textAlign: TextAlign.center,
+                  style:
+                      const TextStyle(color: NCATTheme.softText, fontSize: 11)),
             ],
           ),
         ],
@@ -55,12 +60,13 @@ class _RingPainter extends CustomPainter {
     final center = size.center(Offset.zero);
     final radius = size.width / 2 - 6;
     final basePaint = Paint()
-      ..color = Colors.white.withOpacity(.08)
+      ..color = Colors.white.withValues(alpha: .08)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 10
       ..strokeCap = StrokeCap.round;
     final progressPaint = Paint()
-      ..shader = SweepGradient(colors: [color.withOpacity(.25), color]).createShader(Offset.zero & size)
+      ..shader = SweepGradient(colors: [color.withValues(alpha: .25), color])
+          .createShader(Offset.zero & size)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 10
       ..strokeCap = StrokeCap.round;
@@ -76,5 +82,6 @@ class _RingPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant _RingPainter oldDelegate) => oldDelegate.value != value || oldDelegate.color != color;
+  bool shouldRepaint(covariant _RingPainter oldDelegate) =>
+      oldDelegate.value != value || oldDelegate.color != color;
 }

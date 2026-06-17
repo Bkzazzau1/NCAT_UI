@@ -13,10 +13,30 @@ class DocumentVaultPage extends StatelessWidget {
     final folders = [
       ('Student Files', '12,880 docs', Icons.school_rounded, '184 incomplete'),
       ('Staff Files', '920 docs', Icons.people_alt_rounded, '12 due review'),
-      ('Internal Memos', '1,438 docs', Icons.mark_email_read_rounded, 'AI classified'),
-      ('Procurement', '644 docs', Icons.shopping_cart_rounded, '3 missing approvals'),
-      ('Maintenance Records', '811 docs', Icons.build_rounded, '18 active issues'),
-      ('Safety & Compliance', '390 docs', Icons.health_and_safety_rounded, '4 overdue'),
+      (
+        'Internal Memos',
+        '1,438 docs',
+        Icons.mark_email_read_rounded,
+        'AI classified'
+      ),
+      (
+        'Procurement',
+        '644 docs',
+        Icons.shopping_cart_rounded,
+        '3 missing approvals'
+      ),
+      (
+        'Maintenance Records',
+        '811 docs',
+        Icons.build_rounded,
+        '18 active issues'
+      ),
+      (
+        'Safety & Compliance',
+        '390 docs',
+        Icons.health_and_safety_rounded,
+        '4 overdue'
+      ),
       ('Meeting Minutes', '288 docs', Icons.groups_rounded, 'Searchable'),
       ('Audit Files', '172 docs', Icons.fact_check_rounded, 'Secure vault'),
     ];
@@ -28,21 +48,29 @@ class DocumentVaultPage extends StatelessWidget {
           const SectionHeader(
             icon: Icons.inventory_2_rounded,
             title: 'Digital Document Vault',
-            subtitle: 'A secure AI-searchable archive for student records and non-project administrative files.',
+            subtitle:
+                'A secure AI-searchable archive for student records and non-project administrative files.',
             actionLabel: 'Upload Document',
           ),
           const SizedBox(height: 20),
           TextField(
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.search_rounded),
-              hintText: 'Ask AI to find student files, memos, procurement records, maintenance reports, safety documents...',
-              suffixIcon: IconButton(onPressed: () {}, icon: const Icon(Icons.auto_awesome_rounded)),
+              hintText:
+                  'Ask AI to find student files, memos, procurement records, maintenance reports, safety documents...',
+              suffixIcon: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.auto_awesome_rounded)),
             ),
           ),
           const SizedBox(height: 18),
           LayoutBuilder(
             builder: (context, constraints) {
-              final count = constraints.maxWidth > 1000 ? 4 : constraints.maxWidth > 680 ? 2 : 1;
+              final count = constraints.maxWidth > 1000
+                  ? 4
+                  : constraints.maxWidth > 680
+                      ? 2
+                      : 1;
               return GridView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
@@ -67,9 +95,12 @@ class DocumentVaultPage extends StatelessWidget {
                           ],
                         ),
                         const Spacer(),
-                        Text(folder.$1, style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 17)),
+                        Text(folder.$1,
+                            style: const TextStyle(
+                                fontWeight: FontWeight.w900, fontSize: 17)),
                         const SizedBox(height: 5),
-                        Text(folder.$2, style: const TextStyle(color: NCATTheme.softText)),
+                        Text(folder.$2,
+                            style: const TextStyle(color: NCATTheme.softText)),
                       ],
                     ),
                   );
@@ -78,10 +109,10 @@ class DocumentVaultPage extends StatelessWidget {
             },
           ),
           const SizedBox(height: 18),
-          GlassCard(
+          const GlassCard(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Icon(Icons.psychology_alt_rounded, color: NCATTheme.cyan),
                 SizedBox(width: 14),
                 Expanded(

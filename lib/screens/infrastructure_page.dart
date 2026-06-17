@@ -25,18 +25,43 @@ class InfrastructurePage extends StatelessWidget {
                 const SectionHeader(
                   icon: Icons.hub_rounded,
                   title: 'AI Infrastructure Command Centre',
-                  subtitle: 'AI visibility for facilities, simulators, ICT, hostels, power, safety, maintenance and institutional assets.',
+                  subtitle:
+                      'AI visibility for facilities, simulators, ICT, hostels, power, safety, maintenance and institutional assets.',
                   actionLabel: 'Generate Infra Report',
                 ),
                 const SizedBox(height: 20),
                 LayoutBuilder(
                   builder: (context, constraints) {
-                    final count = constraints.maxWidth > 1000 ? 4 : constraints.maxWidth > 620 ? 2 : 1;
+                    final count = constraints.maxWidth > 1000
+                        ? 4
+                        : constraints.maxWidth > 620
+                            ? 2
+                            : 1;
                     final metrics = [
-                      ('Registered Assets', '214', Icons.domain_rounded, NCATTheme.cyan),
-                      ('Active Work Orders', '18', Icons.construction_rounded, NCATTheme.gold),
-                      ('Critical Alerts', '3', Icons.warning_rounded, NCATTheme.red),
-                      ('Safety Checks Due', '7', Icons.health_and_safety_rounded, NCATTheme.purple),
+                      (
+                        'Registered Assets',
+                        '214',
+                        Icons.domain_rounded,
+                        NCATTheme.cyan
+                      ),
+                      (
+                        'Active Work Orders',
+                        '18',
+                        Icons.construction_rounded,
+                        NCATTheme.gold
+                      ),
+                      (
+                        'Critical Alerts',
+                        '3',
+                        Icons.warning_rounded,
+                        NCATTheme.red
+                      ),
+                      (
+                        'Safety Checks Due',
+                        '7',
+                        Icons.health_and_safety_rounded,
+                        NCATTheme.purple
+                      ),
                     ];
                     return GridView.builder(
                       shrinkWrap: true,
@@ -56,8 +81,13 @@ class InfrastructurePage extends StatelessWidget {
                             children: [
                               Icon(m.$3, color: m.$4, size: 28),
                               const Spacer(),
-                              Text(m.$2, style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w900)),
-                              Text(m.$1, style: const TextStyle(color: NCATTheme.softText)),
+                              Text(m.$2,
+                                  style: const TextStyle(
+                                      fontSize: 28,
+                                      fontWeight: FontWeight.w900)),
+                              Text(m.$1,
+                                  style: const TextStyle(
+                                      color: NCATTheme.softText)),
                             ],
                           ),
                         );
@@ -70,29 +100,46 @@ class InfrastructurePage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Asset Health Monitor', style: TextStyle(fontWeight: FontWeight.w900, fontSize: 18)),
+                      const Text('Asset Health Monitor',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w900, fontSize: 18)),
                       const SizedBox(height: 14),
                       ...infrastructureAssets.map((asset) => Container(
                             margin: const EdgeInsets.only(bottom: 12),
                             padding: const EdgeInsets.all(14),
                             decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(.05),
+                              color: Colors.white.withValues(alpha: .05),
                               borderRadius: BorderRadius.circular(18),
-                              border: Border.all(color: Colors.white.withOpacity(.08)),
+                              border: Border.all(
+                                  color: Colors.white.withValues(alpha: .08)),
                             ),
                             child: Row(
                               children: [
-                                ProgressRing(value: asset.health, label: 'Health', color: asset.health < .5 ? NCATTheme.red : NCATTheme.gold, size: 82),
+                                ProgressRing(
+                                    value: asset.health,
+                                    label: 'Health',
+                                    color: asset.health < .5
+                                        ? NCATTheme.red
+                                        : NCATTheme.gold,
+                                    size: 82),
                                 const SizedBox(width: 16),
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Text(asset.name, style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 16)),
+                                      Text(asset.name,
+                                          style: const TextStyle(
+                                              fontWeight: FontWeight.w900,
+                                              fontSize: 16)),
                                       const SizedBox(height: 5),
-                                      Text('${asset.category} • ${asset.location}', style: const TextStyle(color: NCATTheme.softText)),
+                                      Text(
+                                          '${asset.category} • ${asset.location}',
+                                          style: const TextStyle(
+                                              color: NCATTheme.softText)),
                                       const SizedBox(height: 8),
-                                      Text(asset.nextAction, style: const TextStyle(fontSize: 13)),
+                                      Text(asset.nextAction,
+                                          style: const TextStyle(fontSize: 13)),
                                     ],
                                   ),
                                 ),

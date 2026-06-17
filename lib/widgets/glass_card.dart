@@ -25,12 +25,12 @@ class GlassCard extends StatelessWidget {
         child: Container(
           padding: padding,
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(.065),
+            color: Colors.white.withValues(alpha: .065),
             borderRadius: BorderRadius.circular(radius),
-            border: Border.all(color: Colors.white.withOpacity(.12)),
+            border: Border.all(color: Colors.white.withValues(alpha: .12)),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(.24),
+                color: Colors.black.withValues(alpha: .24),
                 blurRadius: 24,
                 offset: const Offset(0, 18),
               ),
@@ -42,6 +42,7 @@ class GlassCard extends StatelessWidget {
     );
 
     if (onTap == null) return card;
-    return InkWell(borderRadius: BorderRadius.circular(radius), onTap: onTap, child: card);
+    return InkWell(
+        borderRadius: BorderRadius.circular(radius), onTap: onTap, child: card);
   }
 }

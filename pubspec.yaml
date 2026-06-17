@@ -1,10 +1,10 @@
 name: ncat_ai_flutter_demo
 description: Premium Flutter UI demo for NCAT AI Infrastructure and Student Intelligence Platform.
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0+1
 
 environment:
-  sdk: '>=3.3.0 <4.0.0'
+  sdk: ">=3.3.0 <4.0.0"
 
 dependencies:
   flutter:

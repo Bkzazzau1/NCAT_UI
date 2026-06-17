@@ -28,7 +28,8 @@ class SectionHeader extends StatelessWidget {
             margin: const EdgeInsets.only(right: 14),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              gradient: const LinearGradient(colors: [NCATTheme.blue, NCATTheme.cyan]),
+              gradient: const LinearGradient(
+                  colors: [NCATTheme.blue, NCATTheme.cyan]),
             ),
             child: Icon(icon, color: Colors.white),
           ),
@@ -46,7 +47,10 @@ class SectionHeader extends StatelessWidget {
               const SizedBox(height: 6),
               Text(
                 subtitle,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: NCATTheme.softText),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium
+                    ?.copyWith(color: NCATTheme.softText),
               ),
             ],
           ),

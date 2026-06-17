@@ -50,25 +50,29 @@ final executiveMetrics = <MetricItem>[
 final aiAlerts = <AlertItem>[
   const AlertItem(
     title: 'Missing file cluster detected',
-    message: '43 student records are missing medical clearance or final bursary confirmation.',
+    message:
+        '43 student records are missing medical clearance or final bursary confirmation.',
     severity: 'High',
     owner: 'Registry + Bursary',
   ),
   const AlertItem(
     title: 'Flight training gap',
-    message: '12 pilot students have more than 14 days gap since last aircraft session.',
+    message:
+        '12 pilot students have more than 14 days gap since last aircraft session.',
     severity: 'Medium',
     owner: 'Training Office',
   ),
   const AlertItem(
     title: 'Simulator maintenance due',
-    message: 'Simulator B has 6 hours left before recommended maintenance inspection.',
+    message:
+        'Simulator B has 6 hours left before recommended maintenance inspection.',
     severity: 'High',
     owner: 'Engineering Unit',
   ),
   const AlertItem(
     title: 'Approval delay',
-    message: 'Aircraft Maintenance result approval has stayed with department for 6 days.',
+    message:
+        'Aircraft Maintenance result approval has stayed with department for 6 days.',
     severity: 'Medium',
     owner: 'HoD Office',
   ),
